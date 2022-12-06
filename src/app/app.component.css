@@ -1,0 +1,127 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+	width: 90px; height: 90px;
+	background: #fff;
+	border: 20px solid #aaa;
+	border-radius: 30px;
+	transition: all 2s;
+    z-index: 50;
+}
+
+.circle:hover {
+	border-color: #333;
+	transform: rotate(1080deg);
+	border-radius: 50%;
+}
+
+.modal {
+    height: 80%;
+    width: 90%;
+    background-color: rgba(50, 50, 50, 0.5);
+    position: absolute;
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.modal1, .modal2 {
+    height: 90%;
+    width: 45%;
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal1 > div, .modal2 > div {
+    background: linear-gradient(to right, red, lime) padding-box, linear-gradient(to right bottom, #271172, darkorchid) border-box;
+    border: 5px solid transparent;
+    width: 90%;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.modal1 > div p, .modal2>div p {
+    position: absolute;
+    font-weight: bold;
+    color: white;
+}
+
+.modal1 > div p {
+    left: 25%;
+}
+
+.modal2 > div p {
+    left: 75%;
+}
+
+.modal1 div div, .modal2 div div {
+    border: solid 1px transparent;
+    border-radius: 50px;
+    background-color: black;
+    /* background-image: radial-gradient(circle at 38px 40px, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 40px, blue 40px); */
+    /* background-image: radial-gradient(circle at left, transparent 0, transparent 30px, white 30px); */
+    /* border-left: none; */
+    height: 100%;
+    padding: 20px;
+}
+
+/* HTML */
+.modal1 div:nth-child(1) div {
+    width: 90%;
+}
+
+/* CSS */
+/* .modal1 div:nth-child(2) div {
+    width: 80%;
+} */
+
+/* JavaScript */
+/* .modal1 div:nth-child(3) div {
+    width: 70%;
+} */
+
+/* PHP */
+/* .modal1 div:nth-child(4) div {
+    width: 50%;
+} */
+
+/* SQL */
+/* .modal1 div:nth-child(5) div {
+    width: 50%;
+} */
+
+/* TypeScript */
+/* .modal2 div:nth-child(1) div {
+    width: 50%;
+} */
+
+/* Angular */
+/* .modal2 div:nth-child(2) div {
+    width: 50%;
+} */
+
+/* NodeJs */
+/* .modal2 div:nth-child(3) div {
+    width: 35%;
+} */
+
+/* Git */
+/* .modal2 div:nth-child(4) div {
+    width: 35%;
+} */
+
+/* MongoDB */
+/* .modal2 div:nth-child(5) div {
+    width: 10%;
+}  */
