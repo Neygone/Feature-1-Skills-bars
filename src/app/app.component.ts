@@ -11,33 +11,29 @@ export class AppComponent {
 	constructor() {
 		window.onload = () => {
 			const circle = document.querySelector('#circleId') as HTMLElement | null;
+			const skills_bars: any = [];
+			const widths = [90, 80, 70, 50, 50, 50, 50, 35, 35, 10]; // HTML, CSS, JavaScript, PHP, SQL, TypeScript, Angular, NodeJs, Git, MongoDB
+			const modal = document.querySelector('#modalId') as HTMLElement | null;
 
 			circle!.onmouseover = () => setTimeout(() => {
-				const modal = document.querySelector('#modalId') as HTMLElement | null;
+				
 				modal!.style.display = 'flex';
-				const skills_bars: any = [];
-				const widths = [90, 80, 70, 50, 50, 50, 50, 35, 35, 10]; // HTML, CSS, JavaScript, PHP, SQL, TypeScript, Angular, NodeJs, Git, MongoDB
-				// let width = 0;
 
 				for(let i = 0; i < widths.length; i++) {
-					let skill_bar = document.querySelector(`#skill-bar${i}`) as HTMLElement | null;
-					skills_bars.push(skill_bar);
+
+					if(skills_bars.length < 10) {
+						let skill_bar = document.querySelector(`#skill-bar${i}`) as HTMLElement | null;
+						skills_bars.push(skill_bar);
+					}
 					this.increaseWidth(i, widths[i], skills_bars[i]);
 				}
 			}, 20);
 
 			circle!.onmouseout = () => setTimeout(() => {
-				const skills_bars: any = [];
-				const widths = [90, 80, 70, 50, 50, 50, 50, 35, 35, 10]; // HTML, CSS, JavaScript, PHP, SQL, TypeScript, Angular, NodeJs, Git, MongoDB
 
 				for(let i = 0; i < widths.length; i++) {
-					let skill_bar = document.querySelector(`#skill-bar${i}`) as HTMLElement | null;
-					skills_bars.push(skill_bar);
-					this.decreaseWidth(i, widths[i], skills_bars[i]);
+					this.decreaseWidth(widths[i], skills_bars[i], Math.max(...widths), modal);
 				}
-
-				// const modal = document.querySelector('#modalId') as HTMLElement | null;
-				// modal!.style.display = 'none';
 			}, 20);
 		}
   }
@@ -45,14 +41,18 @@ export class AppComponent {
   increaseWidth(i: number = 0, skill_bar_width : number, skill_bar: HTMLElement | null): void {
 	setInterval(() => {
 		i += 0.5;
+
 		if(i <= skill_bar_width) skill_bar!.style.width = `${i}%`;
 	}, 10);
   }
 
-  decreaseWidth(i: number = 0, skill_bar_width : number, skill_bar: HTMLElement | null): void {
+  decreaseWidth(i: number, skill_bar: HTMLElement | null, max_width: number, modal: HTMLElement | null): void {
 	setInterval(() => {
 		i -= 0.5;
-		if(i >= 0) skill_bar!.style.width = `${i}%`;
+		max_width -= 0.5;
+		
+		if(max_width === 0) modal!.style.display = 'none';
+		else if(i > 0) skill_bar!.style.width = `${i}%`;
 	}, 10);
   }
 }
